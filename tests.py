@@ -24,9 +24,9 @@ class S3BackendTest(_BaseTest):
                                  body='test body 1',
                                  status=200)
             assert storage.retrieve_response(self.spider, request1) is None
-            storage.store_response(self.spider, request1, response1)
 
-            # close and re-open to flush to s3
+            # store response, closing and re-opening spider to flush to s3
+            storage.store_response(self.spider, request1, response1)
             storage.close_spider(self.spider)
             storage.open_spider(self.spider)
 
@@ -37,6 +37,7 @@ class S3BackendTest(_BaseTest):
                                  headers={'Content-Type': 'text/html'},
                                  body='test body 2',
                                  status=200)
+
+            # don't flush response to s3 yet; instead load from the local disk
             storage.store_response(self.spider, request2, response2)
-            # don't flush to s3 yet; instead load from the local disk
             self.assertEqualResponse(response2, storage.retrieve_response(self.spider, request2))
