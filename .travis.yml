@@ -1,0 +1,13 @@
+language: python
+python:
+- '2.7'
+env:
+- DJANGO=1.8 DJANGO_VERSION_MIN=1.8 DJANGO_VERSION_MAX=1.9
+install:
+- pip install -q "Django>=$DJANGO_VERSION_MIN,<$DJANGO_VERSION_MAX"
+script: python setup.py test
+deploy:
+  provider: pypi
+  user: acordiner
+  password:
+    secure: F/ayrQBu0eholIPv1Hcd5coTA4IJfBjNvlfLQXdfUVuM5M0LZY+DoO9/9Uawj5pn9G3qY4CgfWv+AB4713tg5ti51iouw8TZ59C7k+uViRp/Jz1taPR/ystgU3WUIs2sKmXy9OJqdHtxzBRaj/HOtsV2b5SptmIvvqKtYR/R0fZECviiygp+9XgwP5IAPQ2emB9gv2vyfXmSt62XoxsjAGZJrc/70xP2UfNOkxT9qDH7mt0flXhoy7Ac/MqVC3RtOAMaSzcPq1j0V+yFAHVogLycnTn+HW0NsK+FtqwgkLPRYTSqr/OBRSOJkbRzTG+Ii9kXCZuJGI8HdDrLZ6XheYKPNueRFYsP8XrZORX+lfHXbNkf1Iq8hVJs8wzCNqP2Meuat5toMkVGsW8KQDpZTMVGv5CyUVH6T4YC16thfZExW/Sz7o/9XurO4fCG/BNHdoXnLj5oeMojaGi42eFXKhjBHwZ3M+p0FqDKilaeL95UNsnT3yezjNDx0uzdWVievgnyg90KAJLTvbD5xtfvG7b7WWdbFmK98q3DyJf+8BzI/+i9/RmFU28kSMJ3wIlvYuvf95SUnJXOtYkJb3ViTI31O7KxXUPWRRtUXMP/MU5xYwtCqr+4BdzLLw055kEe90WSP1FQoUJysBArXWkbmmSTSaDxqom6HyAiksN/NrM=
