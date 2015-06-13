@@ -14,7 +14,7 @@ setup(
     description='Use S3 as a cache backend in Scrapy projects.',
     long_description=open(os.path.join(PROJECT_DIR, 'README.rst')).read(),
     install_requires=[
-        'scrapy',
+        'scrapy<1.0.0rc1',
         'boto',
     ],
     tests_require=[
